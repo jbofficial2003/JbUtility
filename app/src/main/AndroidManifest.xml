@@ -36,6 +36,8 @@
             tools:ignore="Instantiatable" />
         <activity android:name=".ApkExtract"
             tools:ignore="Instantiatable" />
+        <activity android:name=".CalC"
+            tools:ignore="Instantiatable" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

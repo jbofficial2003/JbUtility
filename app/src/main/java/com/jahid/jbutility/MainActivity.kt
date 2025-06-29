@@ -44,6 +44,7 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.materialIcon
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -270,6 +271,7 @@ class MainActivity : ComponentActivity() {
         val features = listOf(
             Feature("Wallpaper", R.drawable.wallpaper_icon),
             Feature("ApkExtract", R.drawable.apk_icon),
+            Feature("Calculator", R.drawable.calc_icon),
             Feature("Coming soon", R.drawable.coming_icon)
         )
 
@@ -311,9 +313,13 @@ class MainActivity : ComponentActivity() {
                                 "ApkExtract" -> {
                                 context.startActivity(Intent(context, ApkExtract::class.java))
                                 }
+                                "Calculator" -> {
+                                    context.startActivity(Intent(context, CalC::class.java))
+                                }
                                 "Coming soon" -> {
                                     context.startActivity(Intent(context, Coming::class.java))
                                 }
+
                             }
                         }
 
