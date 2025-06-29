@@ -8,7 +8,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -86,7 +86,7 @@ fun CalculatorUI() {
                     },
                     navigationIcon = {
                         Icon(
-                            imageVector = Icons.Default.ArrowBack,
+                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                             contentDescription = "Back",
                             modifier = Modifier
                                 .padding(horizontal = 12.dp)
@@ -154,14 +154,15 @@ fun CalculatorUI() {
                                 .weight(1f)
                                 .aspectRatio(1f)
 
-                            val buttonColors = when {
-                                label == "=" -> equalButtonColors
-                                label in operatorButtons || label in listOf("(", ")", "⌫") -> operatorButtonColors
+                            val buttonColors = when (label) {
+                                "=" -> equalButtonColors
+                                in operatorButtons, in listOf("(", ")", "⌫") -> operatorButtonColors
                                 else -> numberButtonColors
                             }
 
                             Button(
                                 onClick = {
+                                    vibrate(context, 15)
                                     when (label) {
                                         "=" -> calculate()
                                         "C" -> {
